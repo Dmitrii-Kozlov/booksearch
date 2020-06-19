@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    </head>
+    <style>
+        .center {
+    width: 30%; /* Ширина элемента в пикселах */
+    padding: 10px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+    </style>
+    <body>
+        <div class="center">
+            {% block body %}
+            {% endblock %}
+     <form action="{{ url_for('logout') }}" method="post">
+            <button class="btn btn-primary">log out</button>
+            </form>
+        </div>
+
+    </body>
+</html>
