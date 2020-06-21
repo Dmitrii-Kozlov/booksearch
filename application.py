@@ -38,9 +38,12 @@ def register():
     password = request.form.get("password")
     if name == '':
         return render_template("error.html", message="User should have a name.")
-    user = Users(name=name, password=password)
-    db.session.add(user)
-    db.session.commit()
+    try:
+        user = Users(name=name, password=password)
+        db.session.add(user)
+        db.session.commit()
+    except:
+        return render_template("error.html", message="DateBase error")
     return render_template("success.html", message="You have successfully registered!")
 
 @app.route("/search", methods=["POST"])
@@ -49,12 +52,12 @@ def search():
     password = request.form.get("password")
     if name == '':
         return render_template("error.html", message="User should have a name.")
-
-    user = Users.query.filter(and_(Users.name == name, Users.password == password)).first()
-
+    try:
+        user = Users.query.filter(and_(Users.name == name, Users.password == password)).first()
+    except:
+        return render_template("error.html", message="DateBase error")
     if not user:
         return render_template("error.html", message="Invalid username or password.")
-    print(user, user.name, user.password)
     session['id'] = user.id
     session['name'] = user.name
     year = datetime.date.today().year
