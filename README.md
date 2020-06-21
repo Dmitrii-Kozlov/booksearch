@@ -22,18 +22,32 @@ On /api/<isbn> is API available in JSON format with following answer:
 }
 
 Files in project:
+
 books.csv - list of books
+
 models.py - describing SQLAlchemy objects (tables)
+
 create_table.py - create tables described in models.py
+
 application.py - main flask application
+
 HTML pages in "templates" folder:
+
 -index.html - main screen with login/password welcome.
+
 -register.html - registration page with login/password inputs (can be expanded by other fields).
+
 -search.html - main search page with search fields(ISBN,title,author,year).
+
 -result.html - page with results of search (title/author), each result is clickable.
+
 -book.html - individual book page with added rating and reviews
+
 -layout.html - layout page for project
+
 -layout_login.html - layout page with logout button
+
 -error.html - layout for any error
+
 -success.html - layout for success action
 
